@@ -174,7 +174,7 @@ onMounted(() => {
    }
 
    button{
-    background-color: #008584;
+    background-color: #39c3e0;
     color: white;
     border: none;
     width: 100%;
@@ -187,7 +187,7 @@ onMounted(() => {
     
    }
     button:hover{
-        background-color: #025353;
+        background-color: #2da3bb;
     }
 
    div[v-if]{

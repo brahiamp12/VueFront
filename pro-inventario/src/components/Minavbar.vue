@@ -1,4 +1,9 @@
+<script setup lang="ts">
+import Logo from './icons/logo.vue';
+</script>
+
 <template>
+    
     <nav>
         <ul>
             <li><router-link to="/">Home</router-link></li>
@@ -61,7 +66,7 @@ nav ul li a:hover {
 
 /* Navegación activa */
 nav ul li a.router-link-active {
-    background-color: #008584; /* Fondo del enlace activo */
+    background-color: #39c3e0; /* Fondo del enlace activo */
     color: #ffffff; /* Texto blanco */
 }
 

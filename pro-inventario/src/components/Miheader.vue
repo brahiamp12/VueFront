@@ -3,8 +3,8 @@
 <header>
 
 <div class="logotitulo">
-
-   <h1>Mi Proyecto Inventario</h1>
+    
+    <Logo></Logo>
 
    </div>
 
@@ -13,7 +13,8 @@
 </template>
 
 
-<script setup>
+<script setup>  
+    import Logo from './icons/logo.vue';
     import Minavbar from './Minavbar.vue';
 </script>
 <style>

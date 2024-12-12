@@ -82,7 +82,7 @@ onMounted(() => {
     }
 
     th {
-    background-color: #006666;
+    background-color: #39c3e0;
     font-weight: bold;
     color:#FFFF;
     }

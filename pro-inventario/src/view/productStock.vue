@@ -31,6 +31,7 @@
 <script setup>
 import Miheader from '@/components/Miheader.vue';
 import Swal from 'sweetalert2';
+import logo from '@/components/icons/logo.vue';
 import {ref, onMounted} from 'vue';
 
 const data = ref([])
@@ -67,51 +68,32 @@ onMounted(() => {
 <style>
 
 h1{
-
-color: #000000;
-
-margin: auto;
-
-font-size: 25px;
-
-font-weight: bold;
-
-margin-top: 20px;
-
-margin-bottom: 20px;
-
-width: 50%;
-
-text-align: center;
-
+    color: #000000;
+    margin: auto;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    text-align: center;
 }
 
 table {
-
-border-collapse: collapse;
-
-width: 50%;
-
-margin: auto;
-
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
 }
 
 th, td {
-
-border: 2px solid #091258;
-
-padding: 8px;
-
-text-align: left;
-
+    border: 2px solid #091258;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-
-background-color: #006666;
-color:#FFFF;
-font-weight: bold;
-
+    background-color: #39c3e0;
+    color:#FFFF;
+    font-weight: bold;
 }
 
 </style>
