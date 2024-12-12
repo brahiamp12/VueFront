@@ -2,7 +2,8 @@
     <nav>
         <ul>
             <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/insertar">Insertar</router-link></li>
+            <li><router-link to="/insertarStock">Registrar inventario</router-link></li>
+            <li><router-link to="/insertarProduct">Registrar Producto</router-link></li>
             <li><router-link to="/consultar">Consultar</router-link></li>
             <li><router-link to="/borrar">Borrar</router-link></li>
             <li><router-link to="/actualizar">Actualizar</router-link></li>
@@ -21,7 +22,7 @@
 #706F6F -> Gris
 */
 nav {
-    background-color: #4DB79E; /* Color de fondo */
+    background-color: #cccccc; /* Color de fondo */
     padding: 10px 20px;
     border-radius: 0px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
@@ -44,7 +45,7 @@ nav ul li {
 /* Enlaces del navbar */
 nav ul li a {
     text-decoration: none; /* Sin subrayado */
-    color: #ecf0f1; /* Color del texto */
+    color: #000000; /* Color del texto */
     font-weight: bold;
     font-size: 16px;
     padding: 8px 12px;
@@ -60,7 +61,7 @@ nav ul li a:hover {
 
 /* Navegación activa */
 nav ul li a.router-link-active {
-    background-color: #EC7B24; /* Fondo del enlace activo */
+    background-color: #008584; /* Fondo del enlace activo */
     color: #ffffff; /* Texto blanco */
 }
 

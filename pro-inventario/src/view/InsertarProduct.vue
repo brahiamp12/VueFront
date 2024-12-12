@@ -2,31 +2,18 @@
 
     <Miheader></Miheader>
     <fieldset>
-        <label id="title">Registro de Inventario</label>
-        <form @submit.prevent="insertarProductStock">
+        <label id="title">Registro de Productos</label>
+        <form @submit.prevent="insertarProduct">
 
+          
+           
             <div>
-                <label for="">Referencia</label>
-                <select v-model="frm.product.id" required>
-                    <option v-for="(item, index) in data" :key="index" :value="item.id">
-                        {{item.reference}} - {{item.name}}
-                    </option>
-                </select>
+                <label for="referencia">Referencia</label>
+                <input type="text" v-model="frm.reference">
             </div>
             <div>
-                <label for="">Tipo de movimiento</label>
-                <select v-model="frm.type" name="" id="">
-                    <option value="Entrada">Entrada</option>
-                    <option value="Salida">Salida</option>
-                </select>
-            </div>
-            <div>
-                <label for="cantidad">Cantidad</label>
-                <input id="cant" type="number" min="1" step="1" v-model="frm.quantity">
-            </div>
-            <div>
-                <label for="fecha">Fecha</label>
-                <input type="date" name="" id="" v-model="frm.create_date">
+                <label for="name">Nombre</label>
+                <input type="text"  v-model="frm.name">
             </div>
 
             <div>
@@ -45,25 +32,17 @@ import Swal from 'sweetalert2';
 import {ref, onMounted} from 'vue';
 
 const frm = ref({
-    product:{
-        id:""
-    },
-    type: "",
-    quantity:"",
-    create_date: "",
-    employee:{
-        id:1
-    }
     
-
+    reference:"",
+    name: ""
 })
 
 
 
 const mensaje= ref("")
-const insertarProductStock =async()=>{
+const insertarProduct =async()=>{
     try {
-        const response = await fetch("http://localhost:8080/api/product-stock",
+        const response = await fetch("http://localhost:8080/api/products",
             {
                 method:"POST",
                 headers:{
@@ -75,7 +54,7 @@ const insertarProductStock =async()=>{
         
             console.log(response)
         if (!response.ok) {
-            throw new Error("Np se registraron los datos");
+            throw new Error("No se registraron los datos");
             
         }
 
@@ -89,17 +68,12 @@ const insertarProductStock =async()=>{
         });
         mensaje.value= "registro exitoso"
         frm.value= {
-            product: {
-                id: null
-            },
-            type: "",
-            quantity: null,
-            create_date: "",
-            employee: {
-                id: null
-            }}
+            reference:"",
+            name: ""
+        }
         
     } catch (error) {
+        console.log(error)
         mensaje.value = error.mensaje
         Swal.fire({
             icon: "error",
@@ -125,7 +99,6 @@ const consultarProducts= async() => {
             
         }
         data.value = await response.json()
-        console.log(data)
     } catch (error) {
         mensaje.value = error.mensaje
     }finally{
@@ -148,10 +121,10 @@ onMounted(() => {
     padding: 20px;
     max-width: 500px;
     margin: auto;
-    background-color: #ffffff;
+    background-color: #e9e9e9;
     width: 70%;
     padding: 30px;
-    height: 400px;
+    height: 450px;
     box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5),
                 0 10px 30px rgba(0, 0, 0, 0.3),
                 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -159,6 +132,12 @@ onMounted(() => {
 
 
    }
+   label{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+   }
+
+  
    
    legend{
     color: #070130FF;
@@ -191,22 +170,6 @@ onMounted(() => {
     transition: border-color 0.3s;
    }
 
-   button{
-    background-color: #00002CFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    margin-top: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
-   }
-    button:hover{
-        background-color: #0BE6F6FF;
-    }
-
    div[v-if]{
     margin-top: 10px;
     color: #004aad;
@@ -225,6 +188,6 @@ onMounted(() => {
    #title{
     font-weight: bold;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.8em;
    }
 </style>

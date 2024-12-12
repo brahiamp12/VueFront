@@ -3,7 +3,8 @@ import Home from "@/view/Home.vue";
 import Borrar from "@/view/Borrar.vue";
 import Actualizar from "@/view/Actualizar.vue";
 import Consultar from "@/view/Consultar.vue";
-import Insertar from "@/view/Insertar.vue";
+import insertarStock from "@/view/InsertarStock.vue";
+import insertarProduct from "@/view/insertarProduct.vue";
 import productStock from "@/view/productStock.vue";
 
 const routes = [
@@ -15,9 +16,14 @@ const routes = [
 
     },
     {
-        path:'/insertar',
-        name:'insertar',
-        component:Insertar
+        path:'/insertarStock',
+        name:'insertarStock',
+        component:insertarStock
+    },
+    {
+        path:'/insertarProduct',
+        name:'insertarProduct',
+        component:insertarProduct
     },
     {
         path:'/consultar',

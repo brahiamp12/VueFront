@@ -30,6 +30,7 @@
 
 <script setup>
 import Miheader from '@/components/Miheader.vue';
+import Swal from 'sweetalert2';
 import {ref, onMounted} from 'vue';
 
 const data = ref([])
@@ -46,7 +47,13 @@ const consultarDatosProductStock= async() => {
         const responseData = await response.json()
         data.value = responseData.sort((a,b) => b.id - a.id)
     } catch (error) {
-        mensaje.value = error.mensaje
+        Swal.fire({
+            icon: "error",
+            title: "Error al consultar los datos",
+            text: "Error",
+            confirmButtonText: "Aceptar",
+        });
+        //mensaje.value = error.mensaje
     }finally{
         cargaDatos.value = false
     }
@@ -101,8 +108,8 @@ text-align: left;
 
 th {
 
-background-color: #4DB79E;
-
+background-color: #006666;
+color:#FFFF;
 font-weight: bold;
 
 }

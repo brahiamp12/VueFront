@@ -23,6 +23,7 @@
 
 <script setup>
 import Miheader from '@/components/Miheader.vue';
+import Swal from 'sweetalert2';
 import {ref, onMounted} from 'vue';
 
 const data = ref([])
@@ -38,7 +39,13 @@ const consultarDatosProductStock= async() => {
         }
         data.value = await response.json()
     } catch (error) {
-        mensaje.value = error.mensaje
+        Swal.fire({
+            icon: "error",
+            title: "Error al consultar los datos",
+            text: "Error",
+            confirmButtonText: "Aceptar",
+        });
+        //mensaje.value = error.mensaje
     }finally{
         cargaDatos.value = false
     }
@@ -51,52 +58,32 @@ onMounted(() => {
 
 <style>
 
-h1{
+    h1{
+    color: #000000;
+    margin: auto;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    text-align: center;
+    }
 
-color: #000000;
+    table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+    }
 
-margin: auto;
+    th, td {
+    border: 2px solid #091258;
+    padding: 8px;
+    text-align: left;
+    }
 
-font-size: 25px;
-
-font-weight: bold;
-
-margin-top: 20px;
-
-margin-bottom: 20px;
-
-width: 50%;
-
-text-align: center;
-
-}
-
-table {
-
-border-collapse: collapse;
-
-width: 50%;
-
-margin: auto;
-
-}
-
-th, td {
-
-border: 2px solid #091258;
-
-padding: 8px;
-
-text-align: left;
-
-}
-
-th {
-
-background-color: #4DB79E;
-
-font-weight: bold;
-
-}
-
+    th {
+    background-color: #006666;
+    font-weight: bold;
+    color:#FFFF;
+    }
 </style>
