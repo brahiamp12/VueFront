@@ -80,8 +80,8 @@ const insertarProductStock =async()=>{
         }
 
         Swal.fire({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: "Realizado",
+            text: "Inventario Ingresado",
             icon: "success",
             confirmButtonText: `
                 <i class="fa fa-thumbs-up"></i> Ok!
